@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios | Sistema de Recompensas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body class="admin-dashboard-page users-page">
+    <div class="app-shell admin-shell" data-admin-shell>
+      <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
+        <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M20 7h-3.1c.4-.5.6-1.1.6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4a1 1 0 0 0-1 1v3h18V8a1 1 0 0 0-1-1ZM9.7 7H9.4a1.7 1.7 0 1 1 1.7-1.7V7H9.7Zm4.9 0h-1.7V5.3A1.7 1.7 0 1 1 14.6 7ZM4 13v7a1 1 0 0 0 1 1h6v-8H4Zm9 8h6a1 1 0 0 0 1-1v-7h-7v8Z" />
+            </svg>
+          </span>
+          <span>Sistema de<br />Recompensas</span>
+        </a>
+
+        <nav class="side-nav" aria-label="Secciones">
+          <a class="nav-item" href="./dashboard.html">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm9 0h7v4h-7V4ZM4 13h7v7H4v-7Zm9-3h7v10h-7V10Z" /></svg>
+            </span>
+            Dashboard
+          </a>
+          <a class="nav-item is-active" href="./usuarios.html">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
+            </span>
+            Usuarios
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Zm1-3a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z" /></svg>
+            </span>
+            Reglas de acumulacion
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 7h-3.1a3 3 0 0 0 .6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
+            </span>
+            Reglas de redencion
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8h2A10 10 0 1 1 12 2v2Zm1 1v7l5 3-.9 1.7-6.1-3.7V5h2Z" /></svg>
+            </span>
+            Historial
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 20V9h3v11H5Zm5 0V4h3v16h-3Zm5 0v-7h3v7h-3Z" /></svg>
+            </span>
+            Reportes
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
+            </span>
+            Roles
+          </a>
+        </nav>
+
+        <button class="collapse-button" type="button" data-collapse-sidebar aria-expanded="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.4 7.4-1.4-1.4L8 12l6 6 1.4-1.4L10.8 12l4.6-4.6Z" /></svg>
+          <span data-collapse-label>Colapsar menu</span>
+        </button>
+
+        <div class="help-card admin-help">
+          <span class="help-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9v4a3 3 0 0 0 3 3h2v-7H5a7 7 0 0 1 14 0h-3v7h3a3 3 0 0 1-3 3h-4v-2h4a1 1 0 0 0 1-1h-1v-7h3a9 9 0 0 0-9-9Z" /></svg>
+          </span>
+          <div>
+            <strong>Necesitas ayuda?</strong>
+            <span>Visita nuestro centro de ayuda.</span>
+          </div>
+          <a href="#">Ir al centro de ayuda</a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar admin-topbar">
+          <label class="search-box admin-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.2-5.2a7 7 0 1 0-1.4 1.4L19.6 21 21 19.6ZM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z" /></svg>
+            <input type="search" placeholder="Buscar usuarios por nombre, correo o ID..." aria-label="Buscar usuarios" data-users-search />
+          </label>
+
+          <div class="top-actions">
+            <div class="notification-wrap">
+              <button class="icon-button admin-notification" type="button" title="Notificaciones" aria-label="Notificaciones" aria-controls="admin-notification-panel" aria-expanded="false" data-notification-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Zm-4 5a2 2 0 0 1-4 0h4Z" /></svg>
+                <span class="notification-badge" data-notification-badge hidden>0</span>
+              </button>
+
+              <section class="notification-panel" id="admin-notification-panel" data-notification-panel hidden>
+                <header>
+                  <div>
+                    <h2>Notificaciones</h2>
+                    <span data-notification-summary>Sin novedades nuevas</span>
+                  </div>
+                </header>
+                <ul data-notifications-list>
+                  <li class="empty-state">Cargando notificaciones...</li>
+                </ul>
+              </section>
+            </div>
+
+            <div class="profile-wrap">
+              <div class="profile-chip admin-profile" aria-label="Usuario actual">
+                <span data-admin-initials>AD</span>
+                <div>
+                  <strong data-admin-name>Administrador</strong>
+                  <small>Administrador</small>
+                </div>
+                <button class="profile-menu-button" type="button" data-profile-menu-toggle title="Menu de perfil" aria-label="Menu de perfil" aria-controls="admin-profile-menu" aria-expanded="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 15.5 4-4 1.4 1.4L12 18.3l-5.4-5.4L8 11.5l4 4ZM5 4h14v2H5V4Z" /></svg>
+                </button>
+              </div>
+
+              <div class="profile-dropdown" id="admin-profile-menu" data-profile-menu-panel hidden>
+                <button type="button" data-open-profile>Mi perfil</button>
+                <button type="button" data-logout>Cerrar sesion</button>
+              </div>
+
+              <section class="profile-details-panel" data-profile-details hidden aria-labelledby="profile-details-title">
+                <header>
+                  <h2 id="profile-details-title">Mi perfil</h2>
+                  <button class="profile-details-close" type="button" data-close-profile-details aria-label="Cerrar perfil">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5Zm12.6 1.4L6.4 19 5 17.6 17.6 5 19 6.4Z" /></svg>
+                  </button>
+                </header>
+                <dl data-profile-details-list></dl>
+              </section>
+            </div>
+          </div>
+        </header>
+
+        <section class="dashboard-content users-content" aria-labelledby="users-title">
+          <header class="dashboard-heading users-heading">
+            <div>
+              <h1 id="users-title">Gestion de usuarios</h1>
+              <p>Administra y consulta la informacion de los usuarios registrados en el programa.</p>
+            </div>
+          </header>
+
+          <section class="admin-metrics users-metrics" aria-label="Metricas de usuarios">
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Z" /></svg>
+              </span>
+              <small>Usuarios totales</small>
+              <strong data-users-metric="total">0</strong>
+              <span class="trend neutral">100% del total</span>
+            </article>
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm15.7-8.7-1.4-1.4-3.8 3.8-1.8-1.8-1.4 1.4 3.2 3.2 5.2-5.2Z" /></svg>
+              </span>
+              <small>Usuarios activos</small>
+              <strong data-users-metric="active">0</strong>
+              <span class="trend up" data-users-percent="active">0% del total</span>
+            </article>
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon rose" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14.6-5.4 1.4-1.4-2.1-2.1 2.1-2.1-1.4-1.4-2.1 2.1-2.1-2.1-1.4 1.4 2.1 2.1-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1Z" /></svg>
+              </span>
+              <small>Usuarios inactivos</small>
+              <strong data-users-metric="inactive">0</strong>
+              <span class="trend down" data-users-percent="inactive">0% del total</span>
+            </article>
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Zm0 14c-3.9 0-6-1.2-6-2v-2.1c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4V17c0 .8-2.1 2-6 2Z" /></svg>
+              </span>
+              <small>Saldo promedio</small>
+              <strong data-users-metric="average">0 pts</strong>
+              <span class="trend neutral" data-users-average-money>Equivalente a $0 COP</span>
+            </article>
+          </section>
+
+          <div class="users-layout">
+            <section class="admin-panel users-table-panel">
+              <div class="users-toolbar">
+                <div class="users-actions">
+                  <button class="primary-action" type="button" data-open-create-user>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" /></svg>
+                    Crear usuario
+                  </button>
+                  <button class="secondary-action" type="button" data-export-users>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4h2v8l3-3 1.4 1.4L12 15.8l-5.4-5.4L8 9l3 3V4Zm-6 14h14v2H5v-2Z" /></svg>
+                    Exportar
+                  </button>
+                </div>
+                <div class="users-filters" aria-label="Filtros de usuarios">
+                  <label>
+                    Tipo de documento
+                    <select data-document-filter>
+                      <option value="">Todos</option>
+                    </select>
+                  </label>
+                  <label>
+                    Estado
+                    <select data-status-filter>
+                      <option value="">Todos</option>
+                      <option value="activo">Activos</option>
+                      <option value="inactivo">Inactivos</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <div class="admin-table-wrap users-table-wrap">
+                <table class="admin-table users-table">
+                  <thead>
+                    <tr>
+                      <th>Tipo de documento</th>
+                      <th>Numero/ID</th>
+                      <th>Nombre</th>
+                      <th>Correo</th>
+                      <th>Estado</th>
+                      <th>Saldo actual</th>
+                      <th>Fecha de registro</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody data-users-body>
+                    <tr>
+                      <td colspan="8" class="table-empty">Cargando usuarios...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <footer class="users-pagination">
+                <span data-users-pagination-summary>Mostrando 0 usuarios</span>
+                <div>
+                  <button type="button" data-users-prev aria-label="Pagina anterior">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.4 7.4-1.4-1.4L8 12l6 6 1.4-1.4L10.8 12l4.6-4.6Z" /></svg>
+                  </button>
+                  <span data-users-page>1</span>
+                  <button type="button" data-users-next aria-label="Pagina siguiente">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 16.6 1.4 1.4 6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6Z" /></svg>
+                  </button>
+                </div>
+                <select data-users-page-size aria-label="Usuarios por pagina">
+                  <option value="10">10 por pagina</option>
+                  <option value="20">20 por pagina</option>
+                  <option value="50">50 por pagina</option>
+                </select>
+              </footer>
+            </section>
+
+            <aside class="admin-panel user-detail-card" data-user-detail>
+              <p class="empty-state">Selecciona un usuario para ver el detalle.</p>
+            </aside>
+          </div>
+
+          <p class="users-feedback" data-users-message hidden></p>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" data-user-modal hidden>
+      <section class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="create-user-title">
+        <header>
+          <h2 id="create-user-title">Crear usuario</h2>
+          <button type="button" data-close-create-user aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5Zm12.6 1.4L6.4 19 5 17.6 17.6 5 19 6.4Z" /></svg>
+          </button>
+        </header>
+        <form data-create-user-form>
+          <label>
+            Tipo de documento
+            <select name="tipo_documento" required>
+              <option value="CC">CC</option>
+              <option value="TI">TI</option>
+              <option value="CE">CE</option>
+              <option value="NIT">NIT</option>
+              <option value="PAS">PAS</option>
+            </select>
+          </label>
+          <label>
+            Numero de documento
+            <input name="numero_documento" type="text" required />
+          </label>
+          <label>
+            Nombre
+            <input name="nombre" type="text" required />
+          </label>
+          <label>
+            Correo
+            <input name="correo" type="email" />
+          </label>
+          <label>
+            Telefono
+            <input name="telefono" type="tel" />
+          </label>
+          <label>
+            Rol
+            <select name="rol">
+              <option value="consulta">Consulta</option>
+              <option value="operador">Operador</option>
+              <option value="administrador">Administrador</option>
+            </select>
+          </label>
+          <footer>
+            <button class="secondary-action" type="button" data-close-create-user>Cancelar</button>
+            <button class="primary-action" type="submit">Crear usuario</button>
+          </footer>
+        </form>
+      </section>
+    </div>
+
+    <script src="../assets/js/usuarios.js"></script>
+  </body>
+</html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body class="admin-dashboard-page">
-    <div class="app-shell admin-shell">
+    <div class="app-shell admin-shell" data-admin-shell>
       <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
         <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
           <span class="brand-mark" aria-hidden="true">
@@ -25,7 +25,7 @@
             </span>
             Dashboard
           </a>
-          <a class="nav-item" href="#">
+          <a class="nav-item" href="./usuarios.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
             </span>
@@ -63,9 +63,9 @@
           </a>
         </nav>
 
-        <button class="collapse-button" type="button">
+        <button class="collapse-button" type="button" data-collapse-sidebar aria-expanded="true">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.4 7.4-1.4-1.4L8 12l6 6 1.4-1.4L10.8 12l4.6-4.6Z" /></svg>
-          <span>Colapsar menu</span>
+          <span data-collapse-label>Colapsar menu</span>
         </button>
 
         <div class="help-card admin-help">
@@ -88,20 +88,51 @@
           </label>
 
           <div class="top-actions">
-            <button class="icon-button admin-notification" type="button" title="Notificaciones" aria-label="Notificaciones">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Zm-4 5a2 2 0 0 1-4 0h4Z" /></svg>
-              <span class="notification-badge">8</span>
-            </button>
-
-            <div class="profile-chip admin-profile" aria-label="Usuario actual">
-              <span data-admin-initials>AD</span>
-              <div>
-                <strong data-admin-name>Administrador</strong>
-                <small>Administrador</small>
-              </div>
-              <button class="profile-menu-button" type="button" data-logout title="Cerrar sesion" aria-label="Cerrar sesion">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 15.5 4-4 1.4 1.4L12 18.3l-5.4-5.4L8 11.5l4 4ZM5 4h14v2H5V4Z" /></svg>
+            <div class="notification-wrap">
+              <button class="icon-button admin-notification" type="button" title="Notificaciones" aria-label="Notificaciones" aria-controls="admin-notification-panel" aria-expanded="false" data-notification-toggle>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Zm-4 5a2 2 0 0 1-4 0h4Z" /></svg>
+                <span class="notification-badge" data-notification-badge hidden>0</span>
               </button>
+
+              <section class="notification-panel" id="admin-notification-panel" data-notification-panel hidden>
+                <header>
+                  <div>
+                    <h2>Notificaciones</h2>
+                    <span data-notification-summary>Sin novedades nuevas</span>
+                  </div>
+                </header>
+                <ul data-notifications-list>
+                  <li class="empty-state">Cargando notificaciones...</li>
+                </ul>
+              </section>
+            </div>
+
+            <div class="profile-wrap">
+              <div class="profile-chip admin-profile" aria-label="Usuario actual">
+                <span data-admin-initials>AD</span>
+                <div>
+                  <strong data-admin-name>Administrador</strong>
+                  <small>Administrador</small>
+                </div>
+                <button class="profile-menu-button" type="button" data-profile-menu-toggle title="Menu de perfil" aria-label="Menu de perfil" aria-controls="admin-profile-menu" aria-expanded="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 15.5 4-4 1.4 1.4L12 18.3l-5.4-5.4L8 11.5l4 4ZM5 4h14v2H5V4Z" /></svg>
+                </button>
+              </div>
+
+              <div class="profile-dropdown" id="admin-profile-menu" data-profile-menu-panel hidden>
+                <button type="button" data-open-profile>Mi perfil</button>
+                <button type="button" data-logout>Cerrar sesion</button>
+              </div>
+
+              <section class="profile-details-panel" data-profile-details hidden aria-labelledby="profile-details-title">
+                <header>
+                  <h2 id="profile-details-title">Mi perfil</h2>
+                  <button class="profile-details-close" type="button" data-close-profile-details aria-label="Cerrar perfil">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5Zm12.6 1.4L6.4 19 5 17.6 17.6 5 19 6.4Z" /></svg>
+                  </button>
+                </header>
+                <dl data-profile-details-list></dl>
+              </section>
             </div>
           </div>
         </header>
@@ -159,9 +190,14 @@
                   <header class="panel-header">
                     <div>
                       <h2>Acumulacion de puntos por mes</h2>
-                      <span>Ultimos 12 meses</span>
+                      <span data-monthly-range-label>Meses del a&ntilde;o actual</span>
                     </div>
-                    <button class="panel-select" type="button">Ultimos 12 meses</button>
+                    <select class="panel-select" data-month-filter aria-label="Filtrar grafica por meses">
+                      <option value="year-to-date" selected>A&ntilde;o actual</option>
+                      <option value="3">Ultimos 3 meses</option>
+                      <option value="6">Ultimos 6 meses</option>
+                      <option value="12">Ultimos 12 meses</option>
+                    </select>
                   </header>
                   <div class="admin-bar-chart" data-monthly-chart aria-label="Grafica de puntos por mes">
                     <p class="empty-state">Cargando acumulacion...</p>
@@ -232,7 +268,7 @@
                 </span>
                 <h2>Saldo total auditado</h2>
                 <strong data-audit-total>0 pts</strong>
-                <p data-audit-equivalent>Equivalente a $0.00 MXN</p>
+                <p data-audit-equivalent>Equivalente a $0.00 COP</p>
                 <small data-audit-date>Sin auditorias registradas</small>
               </article>
             </aside>

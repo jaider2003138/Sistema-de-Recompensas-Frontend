@@ -24,7 +24,8 @@ function resolveFilePath(requestUrl) {
     '/': '/html/index.html',
     '/index.html': '/html/index.html',
     '/registro.html': '/html/registro.html',
-    '/dashboard.html': '/html/dashboard.html'
+    '/dashboard.html': '/html/dashboard.html',
+    '/usuarios.html': '/html/usuarios.html'
   };
   const requestedPath = htmlRoutes[pathname] || pathname;
   const filePath = path.normalize(path.join(publicDir, requestedPath));
