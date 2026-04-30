@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Sistema de Recompensas</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body class="admin-dashboard-page">
+    <div class="app-shell admin-shell">
+      <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
+        <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M20 7h-3.1c.4-.5.6-1.1.6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4a1 1 0 0 0-1 1v3h18V8a1 1 0 0 0-1-1ZM9.7 7H9.4a1.7 1.7 0 1 1 1.7-1.7V7H9.7Zm4.9 0h-1.7V5.3A1.7 1.7 0 1 1 14.6 7ZM4 13v7a1 1 0 0 0 1 1h6v-8H4Zm9 8h6a1 1 0 0 0 1-1v-7h-7v8Z" />
+            </svg>
+          </span>
+          <span>Sistema de<br />Recompensas</span>
+        </a>
+
+        <nav class="side-nav" aria-label="Secciones">
+          <a class="nav-item is-active" href="./dashboard.html">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm9 0h7v4h-7V4ZM4 13h7v7H4v-7Zm9-3h7v10h-7V10Z" /></svg>
+            </span>
+            Dashboard
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
+            </span>
+            Usuarios
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Zm1-3a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z" /></svg>
+            </span>
+            Reglas de acumulacion
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 7h-3.1a3 3 0 0 0 .6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
+            </span>
+            Reglas de redencion
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8h2A10 10 0 1 1 12 2v2Zm1 1v7l5 3-.9 1.7-6.1-3.7V5h2Z" /></svg>
+            </span>
+            Historial
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 20V9h3v11H5Zm5 0V4h3v16h-3Zm5 0v-7h3v7h-3Z" /></svg>
+            </span>
+            Reportes
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
+            </span>
+            Roles
+          </a>
+        </nav>
+
+        <button class="collapse-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.4 7.4-1.4-1.4L8 12l6 6 1.4-1.4L10.8 12l4.6-4.6Z" /></svg>
+          <span>Colapsar menu</span>
+        </button>
+
+        <div class="help-card admin-help">
+          <span class="help-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9v4a3 3 0 0 0 3 3h2v-7H5a7 7 0 0 1 14 0h-3v7h3a3 3 0 0 1-3 3h-4v-2h4a1 1 0 0 0 1-1h-1v-7h3a9 9 0 0 0-9-9Z" /></svg>
+          </span>
+          <div>
+            <strong>Necesitas ayuda?</strong>
+            <span>Visita nuestro centro de ayuda.</span>
+          </div>
+          <a href="#">Ir al centro de ayuda</a>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar admin-topbar">
+          <label class="search-box admin-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.2-5.2a7 7 0 1 0-1.4 1.4L19.6 21 21 19.6ZM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z" /></svg>
+            <input type="search" placeholder="Buscar usuarios, transacciones, reglas..." aria-label="Buscar" />
+          </label>
+
+          <div class="top-actions">
+            <button class="icon-button admin-notification" type="button" title="Notificaciones" aria-label="Notificaciones">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Zm-4 5a2 2 0 0 1-4 0h4Z" /></svg>
+              <span class="notification-badge">8</span>
+            </button>
+
+            <div class="profile-chip admin-profile" aria-label="Usuario actual">
+              <span data-admin-initials>AD</span>
+              <div>
+                <strong data-admin-name>Administrador</strong>
+                <small>Administrador</small>
+              </div>
+              <button class="profile-menu-button" type="button" data-logout title="Cerrar sesion" aria-label="Cerrar sesion">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 15.5 4-4 1.4 1.4L12 18.3l-5.4-5.4L8 11.5l4 4ZM5 4h14v2H5V4Z" /></svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <section class="dashboard-content" aria-labelledby="dashboard-title">
+          <header class="dashboard-heading">
+            <div>
+              <h1 id="dashboard-title">Dashboard</h1>
+              <p>Resumen general del programa de fidelizacion y trazabilidad.</p>
+            </div>
+          </header>
+
+          <section class="admin-metrics" aria-label="Metricas principales">
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14.5-9.5v-3H16v-2h2.5V3H21v2.5h2v2h-2v3h-2.5Z" /></svg>
+              </span>
+              <small>Usuarios activos</small>
+              <strong data-metric="usuarios_activos">0</strong>
+              <span class="trend neutral" data-trend="usuarios_activos">0% vs. mes anterior</span>
+            </article>
+
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Zm0 14c-3.9 0-6-1.2-6-2v-2.1c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4V17c0 .8-2.1 2-6 2Zm0-4.7c-3.9 0-6-1.2-6-2V10c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4v2.3c0 .8-2.1 2-6 2Z" /></svg>
+              </span>
+              <small>Puntos acumulados</small>
+              <strong data-metric="puntos_acumulados">0</strong>
+              <span class="trend neutral" data-trend="puntos_acumulados">0% vs. mes anterior</span>
+            </article>
+
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 7h-3.1a3 3 0 0 0 .6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
+              </span>
+              <small>Puntos redimidos</small>
+              <strong data-metric="puntos_redimidos">0</strong>
+              <span class="trend neutral" data-trend="puntos_redimidos">0% vs. mes anterior</span>
+            </article>
+
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon rose" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM4.2 4H2V2h3.8l1 5H21l-2 8H8.4L7.8 17H19v2H6.2L4.2 4Z" /></svg>
+              </span>
+              <small>Redenciones hoy</small>
+              <strong data-metric="redenciones_hoy">0</strong>
+              <span class="trend neutral" data-trend="redenciones_hoy">0% vs. ayer</span>
+            </article>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="dashboard-primary">
+              <div class="charts-grid">
+                <article class="admin-panel">
+                  <header class="panel-header">
+                    <div>
+                      <h2>Acumulacion de puntos por mes</h2>
+                      <span>Ultimos 12 meses</span>
+                    </div>
+                    <button class="panel-select" type="button">Ultimos 12 meses</button>
+                  </header>
+                  <div class="admin-bar-chart" data-monthly-chart aria-label="Grafica de puntos por mes">
+                    <p class="empty-state">Cargando acumulacion...</p>
+                  </div>
+                </article>
+
+                <article class="admin-panel">
+                  <header class="panel-header">
+                    <div>
+                      <h2>Distribucion por tipo de transaccion</h2>
+                      <span>Puntos totales por origen</span>
+                    </div>
+                  </header>
+                  <div class="admin-donut-layout">
+                    <div class="admin-donut" data-distribution-donut aria-label="0 puntos totales">
+                      <span><strong data-distribution-total>0</strong><small>Puntos totales</small></span>
+                    </div>
+                    <ul class="admin-legend" data-distribution-list>
+                      <li class="empty-state">Cargando distribucion...</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+
+              <article class="admin-panel movements-panel">
+                <header class="panel-header">
+                  <div>
+                    <h2>Movimientos recientes</h2>
+                    <span>Actividad trazable de usuarios y puntos</span>
+                  </div>
+                </header>
+                <div class="admin-table-wrap">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Tipo</th>
+                        <th>Origen</th>
+                        <th>Puntos</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody data-movements-body>
+                      <tr>
+                        <td colspan="6" class="table-empty">Cargando movimientos...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="panel-link" href="#">Ver todos los movimientos</a>
+              </article>
+            </section>
+
+            <aside class="dashboard-aside" aria-label="Resumen lateral">
+              <article class="admin-panel top-clients">
+                <header class="panel-header compact">
+                  <h2>Top clientes</h2>
+                </header>
+                <ol data-top-clients>
+                  <li class="empty-state">Cargando clientes...</li>
+                </ol>
+              </article>
+
+              <article class="admin-panel audit-summary">
+                <span class="audit-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
+                </span>
+                <h2>Saldo total auditado</h2>
+                <strong data-audit-total>0 pts</strong>
+                <p data-audit-equivalent>Equivalente a $0.00 MXN</p>
+                <small data-audit-date>Sin auditorias registradas</small>
+              </article>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../assets/js/dashboard.js"></script>
+  </body>
+</html>
