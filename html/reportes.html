@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | Sistema de Recompensas</title>
+    <title>Reportes | Sistema de Recompensas</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
-  <body class="admin-dashboard-page">
+  <body class="admin-dashboard-page reports-page">
     <div class="app-shell admin-shell" data-admin-shell>
       <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
         <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
@@ -19,7 +19,7 @@
         </a>
 
         <nav class="side-nav" aria-label="Secciones">
-          <a class="nav-item is-active" href="./dashboard.html">
+          <a class="nav-item" href="./dashboard.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm9 0h7v4h-7V4ZM4 13h7v7H4v-7Zm9-3h7v10h-7V10Z" /></svg>
             </span>
@@ -49,7 +49,7 @@
             </span>
             Historial
           </a>
-          <a class="nav-item" href="./reportes.html">
+          <a class="nav-item is-active" href="./reportes.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M5 20V9h3v11H5Zm5 0V4h3v16h-3Zm5 0v-7h3v7h-3Z" /></svg>
             </span>
@@ -84,7 +84,7 @@
         <header class="topbar admin-topbar">
           <label class="search-box admin-search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.2-5.2a7 7 0 1 0-1.4 1.4L19.6 21 21 19.6ZM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z" /></svg>
-            <input type="search" placeholder="Buscar usuarios, transacciones, reglas..." aria-label="Buscar" />
+            <input type="search" placeholder="Buscar usuarios, transacciones, reglas..." aria-label="Buscar reportes" data-report-search />
           </label>
 
           <div class="top-actions">
@@ -137,147 +137,188 @@
           </div>
         </header>
 
-        <section class="dashboard-content" aria-labelledby="dashboard-title">
+        <section class="dashboard-content reports-content" aria-labelledby="reports-title">
           <header class="dashboard-heading">
             <div>
-              <h1 id="dashboard-title">Dashboard</h1>
-              <p>Resumen general del programa de fidelizacion y trazabilidad.</p>
+              <h1 id="reports-title">Reportes</h1>
+              <p>Analisis detallado del programa de lealtad. Exporta datos en CSV o PDF y da seguimiento al rendimiento.</p>
             </div>
           </header>
 
-          <section class="admin-metrics" aria-label="Metricas principales">
+          <section class="admin-panel report-filter-panel">
+            <form class="report-filters" data-report-filters>
+              <label>
+                Periodo
+                <select name="periodo" data-report-period>
+                  <option value="12" selected>Ultimos 12 meses</option>
+                  <option value="6">Ultimos 6 meses</option>
+                  <option value="3">Ultimos 3 meses</option>
+                  <option value="ytd">Año actual</option>
+                  <option value="month">Mes actual</option>
+                  <option value="all">Todo el historial</option>
+                </select>
+              </label>
+              <label>
+                Canal
+                <select name="canal" data-report-channel>
+                  <option value="">Todos los canales</option>
+                </select>
+              </label>
+              <label>
+                Punto de venta
+                <select name="origen" data-report-origin>
+                  <option value="">Todos los puntos</option>
+                </select>
+              </label>
+              <button class="primary-action" type="submit">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v2H5V4Zm0 5h10v2H5V9Zm0 5h14v2H5v-2Zm0 5h10v2H5v-2Zm12.5-9.5 1.5 1.5L14.5 15.5 12 13l1.5-1.5 1 1 3-3Z" /></svg>
+                Generar reporte
+              </button>
+            </form>
+          </section>
+
+          <section class="admin-metrics report-metrics" aria-label="Metricas de reportes">
             <article class="admin-metric-card">
               <span class="admin-metric-icon green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14.5-9.5v-3H16v-2h2.5V3H21v2.5h2v2h-2v3h-2.5Z" /></svg>
-              </span>
-              <small>Usuarios activos</small>
-              <strong data-metric="usuarios_activos">0</strong>
-              <span class="trend neutral" data-trend="usuarios_activos">0% vs. mes anterior</span>
-            </article>
-
-            <article class="admin-metric-card">
-              <span class="admin-metric-icon mint" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Zm0 14c-3.9 0-6-1.2-6-2v-2.1c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4V17c0 .8-2.1 2-6 2Zm0-4.7c-3.9 0-6-1.2-6-2V10c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4v2.3c0 .8-2.1 2-6 2Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Z" /></svg>
               </span>
               <small>Puntos acumulados</small>
-              <strong data-metric="puntos_acumulados">0</strong>
-              <span class="trend neutral" data-trend="puntos_acumulados">0% vs. mes anterior</span>
+              <strong data-report-metric="earned">0</strong>
+              <span class="trend neutral" data-report-trend="earned">Segun filtros</span>
             </article>
-
-            <article class="admin-metric-card">
-              <span class="admin-metric-icon coral" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 7h-3.1a3 3 0 0 0 .6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
-              </span>
-              <small>Puntos redimidos</small>
-              <strong data-metric="puntos_redimidos">0</strong>
-              <span class="trend neutral" data-trend="puntos_redimidos">0% vs. mes anterior</span>
-            </article>
-
             <article class="admin-metric-card">
               <span class="admin-metric-icon rose" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM4.2 4H2V2h3.8l1 5H21l-2 8H8.4L7.8 17H19v2H6.2L4.2 4Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M20 7h-3.1A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-4.9 4H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
               </span>
-              <small>Redenciones hoy</small>
-              <strong data-metric="redenciones_hoy">0</strong>
-              <span class="trend neutral" data-trend="redenciones_hoy">0% vs. ayer</span>
+              <small>Puntos redimidos</small>
+              <strong data-report-metric="redeemed">0</strong>
+              <span class="trend neutral" data-report-trend="redeemed">Segun filtros</span>
+            </article>
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
+              </span>
+              <small>Top clientes</small>
+              <strong data-report-metric="clients">0</strong>
+              <span class="trend neutral">Clientes con movimientos</span>
+            </article>
+            <article class="admin-metric-card">
+              <span class="admin-metric-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM7 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM6.3 15 4.9 13.6 17.7 1 19.1 2.4 6.3 15Z" /></svg>
+              </span>
+              <small>Tasa de redencion</small>
+              <strong data-report-metric="rate">0%</strong>
+              <span class="trend neutral" data-report-trend="rate">Segun filtros</span>
             </article>
           </section>
 
-          <div class="dashboard-grid">
-            <section class="dashboard-primary">
-              <div class="charts-grid">
-                <article class="admin-panel">
-                  <header class="panel-header">
-                    <div>
-                      <h2>Acumulacion de puntos por mes</h2>
-                      <span data-monthly-range-label>Meses del a&ntilde;o actual</span>
-                    </div>
-                    <select class="panel-select" data-month-filter aria-label="Filtrar grafica por meses">
-                      <option value="year-to-date" selected>A&ntilde;o actual</option>
-                      <option value="3">Ultimos 3 meses</option>
-                      <option value="6">Ultimos 6 meses</option>
-                      <option value="12">Ultimos 12 meses</option>
-                    </select>
-                  </header>
-                  <div class="admin-bar-chart" data-monthly-chart aria-label="Grafica de puntos por mes">
-                    <p class="empty-state">Cargando acumulacion...</p>
-                  </div>
-                </article>
-
-                <article class="admin-panel">
-                  <header class="panel-header">
-                    <div>
-                      <h2>Distribucion por tipo de transaccion</h2>
-                      <span>Puntos totales por origen</span>
-                    </div>
-                  </header>
-                  <div class="admin-donut-layout">
-                    <div class="admin-donut" data-distribution-donut aria-label="0 puntos totales">
-                      <span><strong data-distribution-total>0</strong><small>Puntos totales</small></span>
-                    </div>
-                    <ul class="admin-legend" data-distribution-list>
-                      <li class="empty-state">Cargando distribucion...</li>
-                    </ul>
-                  </div>
-                </article>
-              </div>
-
-              <article class="admin-panel movements-panel">
+          <div class="reports-layout">
+            <div class="reports-main">
+              <section class="admin-panel report-chart-panel report-chart-wide">
                 <header class="panel-header">
                   <div>
-                    <h2>Movimientos recientes</h2>
-                    <span>Actividad trazable de usuarios y puntos</span>
+                    <h2>Puntos acumulados vs redimidos por mes</h2>
+                    <span data-report-period-label>Ultimos 12 meses</span>
+                  </div>
+                </header>
+                <div class="report-legend" aria-label="Convenciones">
+                  <span><i class="legend-dot blue"></i>Puntos acumulados</span>
+                  <span><i class="legend-dot green"></i>Puntos redimidos</span>
+                </div>
+                <div class="report-comparison-chart" data-report-comparison-chart>
+                  <p class="empty-state">Cargando grafica...</p>
+                </div>
+              </section>
+
+              <section class="admin-panel report-top-panel">
+                <header class="panel-header compact">
+                  <div>
+                    <h2>Top clientes</h2>
+                    <span>Clientes con mas puntos acumulados</span>
                   </div>
                 </header>
                 <div class="admin-table-wrap">
-                  <table class="admin-table">
+                  <table class="admin-table report-top-table">
                     <thead>
                       <tr>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Tipo</th>
-                        <th>Origen</th>
+                        <th>#</th>
+                        <th>Cliente</th>
+                        <th>Documento</th>
                         <th>Puntos</th>
-                        <th>Estado</th>
                       </tr>
                     </thead>
-                    <tbody data-movements-body>
+                    <tbody data-report-top-clients>
                       <tr>
-                        <td colspan="6" class="table-empty">Cargando movimientos...</td>
+                        <td colspan="4" class="table-empty">Cargando clientes...</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <a class="panel-link" href="./historial.html">Ver todos los movimientos</a>
-              </article>
-            </section>
+              </section>
 
-            <aside class="dashboard-aside" aria-label="Resumen lateral">
-              <article class="admin-panel top-clients">
+              <section class="admin-panel report-chart-panel">
                 <header class="panel-header compact">
-                  <h2>Top clientes</h2>
+                  <div>
+                    <h2>Distribucion de puntos por canal</h2>
+                    <span data-report-channel-summary>Puntos acumulados</span>
+                  </div>
                 </header>
-                <ol data-top-clients>
-                  <li class="empty-state">Cargando clientes...</li>
-                </ol>
-              </article>
+                <div class="report-donut-layout">
+                  <div class="report-donut" data-report-donut>
+                    <span><strong data-report-donut-total>0</strong><small>Puntos acumulados</small></span>
+                  </div>
+                  <ul class="report-channel-list" data-report-channel-list>
+                    <li class="empty-state">Cargando distribucion...</li>
+                  </ul>
+                </div>
+              </section>
 
-              <article class="admin-panel audit-summary">
-                <span class="audit-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
-                </span>
-                <h2>Saldo total auditado</h2>
-                <strong data-audit-total>0 pts</strong>
-                <p data-audit-equivalent>Equivalente a $0.00 COP</p>
-                <small data-audit-date>Sin auditorias registradas</small>
-              </article>
+              <section class="admin-panel report-chart-panel">
+                <header class="panel-header compact">
+                  <div>
+                    <h2>Tendencia de tasa de redencion (%)</h2>
+                    <span data-report-rate-summary>Por mes</span>
+                  </div>
+                </header>
+                <div class="report-line-chart" data-report-rate-line>
+                  <p class="empty-state">Cargando tendencia...</p>
+                </div>
+              </section>
+            </div>
+
+            <aside class="reports-aside">
+              <section class="admin-panel report-export-panel">
+                <header class="panel-header compact">
+                  <div>
+                    <h2>Exportar reporte</h2>
+                    <span>Descarga los datos con los filtros seleccionados.</span>
+                  </div>
+                </header>
+                <button class="report-export-button csv" type="button" data-export-report-csv>
+                  <span>CSV</span>
+                  <strong>Exportar CSV</strong>
+                  <small>Archivo .csv</small>
+                </button>
+                <button class="report-export-button pdf" type="button" data-export-report-pdf>
+                  <span>PDF</span>
+                  <strong>Exportar PDF</strong>
+                  <small>Archivo .pdf</small>
+                </button>
+                <p class="report-note">Los reportes incluyen todos los datos visibles en pantalla segun los filtros aplicados.</p>
+                <dl class="report-meta">
+                  <dt>Ultima generacion</dt>
+                  <dd data-report-generated-at>Sin generar</dd>
+                </dl>
+              </section>
             </aside>
           </div>
+
+          <p class="users-feedback" data-report-message hidden></p>
         </section>
       </main>
     </div>
 
     <script src="../assets/js/admin-permissions.js"></script>
-    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/reportes.js"></script>
   </body>
 </html>

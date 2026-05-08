@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuarios | Sistema de Recompensas</title>
+    <title>Roles y permisos | Sistema de Recompensas</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
-  <body class="admin-dashboard-page users-page">
+  <body class="admin-dashboard-page roles-page">
     <div class="app-shell admin-shell" data-admin-shell>
       <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
         <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
@@ -25,7 +25,7 @@
             </span>
             Dashboard
           </a>
-          <a class="nav-item is-active" href="./usuarios.html">
+          <a class="nav-item" href="./usuarios.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
             </span>
@@ -55,7 +55,7 @@
             </span>
             Reportes
           </a>
-          <a class="nav-item" href="./roles.html">
+          <a class="nav-item is-active" href="./roles.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
             </span>
@@ -84,7 +84,7 @@
         <header class="topbar admin-topbar">
           <label class="search-box admin-search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.2-5.2a7 7 0 1 0-1.4 1.4L19.6 21 21 19.6ZM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z" /></svg>
-            <input type="search" placeholder="Buscar usuarios por nombre, correo o ID..." aria-label="Buscar usuarios" data-users-search />
+            <input type="search" placeholder="Buscar usuarios, transacciones, reglas..." aria-label="Buscar roles" data-role-search />
           </label>
 
           <div class="top-actions">
@@ -137,183 +137,168 @@
           </div>
         </header>
 
-        <section class="dashboard-content users-content" aria-labelledby="users-title">
-          <header class="dashboard-heading users-heading">
+        <section class="dashboard-content roles-content" aria-labelledby="roles-title">
+          <header class="dashboard-heading">
             <div>
-              <h1 id="users-title">Gestion de usuarios</h1>
-              <p>Administra y consulta la informacion de los usuarios registrados en el programa.</p>
+              <h1 id="roles-title">Roles y permisos</h1>
+              <p>Controla el acceso y los permisos de los usuarios en los procesos de certificacion y operacion segura del programa.</p>
             </div>
+            <button class="primary-action" type="button" data-open-role-modal>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" /></svg>
+              Nuevo rol
+            </button>
           </header>
 
-          <section class="admin-metrics users-metrics" aria-label="Metricas de usuarios">
+          <section class="admin-metrics roles-metrics" aria-label="Metricas de roles">
             <article class="admin-metric-card">
-              <span class="admin-metric-icon mint" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Z" /></svg>
+              <span class="admin-metric-icon violet" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z" /></svg>
               </span>
-              <small>Usuarios totales</small>
-              <strong data-users-metric="total">0</strong>
-              <span class="trend neutral">100% del total</span>
+              <small>Roles configurados</small>
+              <strong data-role-metric="configured">0</strong>
+              <span class="trend neutral">Roles activos</span>
             </article>
             <article class="admin-metric-card">
               <span class="admin-metric-icon green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm15.7-8.7-1.4-1.4-3.8 3.8-1.8-1.8-1.4 1.4 3.2 3.2 5.2-5.2Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14-8a3 3 0 1 0-2.4-4.8 5.8 5.8 0 0 1 0 3.6A5.6 5.6 0 0 1 21 16h-2a7.2 7.2 0 0 0-2-4Z" /></svg>
               </span>
-              <small>Usuarios activos</small>
-              <strong data-users-metric="active">0</strong>
-              <span class="trend up" data-users-percent="active">0% del total</span>
+              <small>Usuarios administradores</small>
+              <strong data-role-metric="admins">0</strong>
+              <span class="trend neutral">Con acceso total</span>
             </article>
             <article class="admin-metric-card">
-              <span class="admin-metric-icon rose" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14.6-5.4 1.4-1.4-2.1-2.1 2.1-2.1-1.4-1.4-2.1 2.1-2.1-2.1-1.4 1.4 2.1 2.1-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1Z" /></svg>
+              <span class="admin-metric-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Z" /></svg>
               </span>
-              <small>Usuarios inactivos</small>
-              <strong data-users-metric="inactive">0</strong>
-              <span class="trend down" data-users-percent="inactive">0% del total</span>
+              <small>Operadores activos</small>
+              <strong data-role-metric="operators">0</strong>
+              <span class="trend neutral">Acceso operacional</span>
             </article>
             <article class="admin-metric-card">
               <span class="admin-metric-icon mint" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Zm0 14c-3.9 0-6-1.2-6-2v-2.1c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4V17c0 .8-2.1 2-6 2Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 5c5 0 9 4 10 7-1 3-5 7-10 7S3 15 2 12c1-3 5-7 10-7Zm0 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /></svg>
               </span>
-              <small>Saldo promedio</small>
-              <strong data-users-metric="average">0 pts</strong>
-              <span class="trend neutral" data-users-average-money>Equivalente a $0 COP</span>
+              <small>Usuarios de consulta</small>
+              <strong data-role-metric="readers">0</strong>
+              <span class="trend neutral">Solo lectura</span>
             </article>
           </section>
 
-          <div class="users-layout">
-            <section class="admin-panel users-table-panel">
-              <div class="users-toolbar">
-                <div class="users-actions">
-                  <button class="primary-action" type="button" data-open-create-user>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" /></svg>
-                    Crear usuario
-                  </button>
-                  <button class="secondary-action" type="button" data-export-users>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4h2v8l3-3 1.4 1.4L12 15.8l-5.4-5.4L8 9l3 3V4Zm-6 14h14v2H5v-2Z" /></svg>
-                    Exportar
-                  </button>
-                </div>
-                <div class="users-filters" aria-label="Filtros de usuarios">
-                  <label>
-                    Tipo de documento
-                    <select data-document-filter>
-                      <option value="">Todos</option>
-                    </select>
-                  </label>
-                  <label>
-                    Estado
-                    <select data-status-filter>
-                      <option value="">Todos</option>
-                      <option value="activo">Activos</option>
-                      <option value="inactivo">Inactivos</option>
-                    </select>
-                  </label>
-                </div>
+          <section class="admin-panel roles-matrix-panel">
+            <header class="panel-header">
+              <div>
+                <h2>Roles y permisos por modulo</h2>
+                <span>Define que puede hacer cada rol en cada modulo del sistema.</span>
               </div>
-
-              <div class="admin-table-wrap users-table-wrap">
-                <table class="admin-table users-table">
-                  <thead>
-                    <tr>
-                      <th>Tipo de documento</th>
-                      <th>Numero/ID</th>
-                      <th>Nombre</th>
-                      <th>Correo</th>
-                      <th>Estado</th>
-                      <th>Saldo actual</th>
-                      <th>Fecha de registro</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody data-users-body>
-                    <tr>
-                      <td colspan="8" class="table-empty">Cargando usuarios...</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="roles-actions">
+                <button class="secondary-action" type="button" data-edit-selected-role>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16.6 9.9-9.9 3.4 3.4L7.4 20H4v-3.4Z" /></svg>
+                  Editar rol
+                </button>
+                <button class="secondary-action" type="button" data-open-assign-users>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Z" /></svg>
+                  Asignar usuarios
+                </button>
+                <button class="primary-action" type="button" data-save-role-permissions>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12l2 2v16H5V3Zm2 2v14h10V6.2L15.8 5H7Zm2 2h6v4H9V7Zm0 8h6v2H9v-2Z" /></svg>
+                  Guardar cambios
+                </button>
               </div>
+            </header>
+            <div class="admin-table-wrap roles-table-wrap">
+              <table class="admin-table roles-table">
+                <thead>
+                  <tr>
+                    <th>Rol</th>
+                    <th>Descripcion</th>
+                    <th>Usuarios asignados</th>
+                    <th>Usuarios</th>
+                    <th>Acumulacion</th>
+                    <th>Redencion</th>
+                    <th>Historial</th>
+                    <th>Reportes</th>
+                    <th>Exportacion</th>
+                    <th>Configuracion</th>
+                  </tr>
+                </thead>
+                <tbody data-roles-body>
+                  <tr>
+                    <td colspan="10" class="table-empty">Cargando roles...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <footer class="roles-legend">
+              <span><i class="permission-dot completo"></i>Acceso completo</span>
+              <span><i class="permission-dot lectura"></i>Solo lectura</span>
+              <span><i class="permission-dot ninguno"></i>Sin acceso</span>
+            </footer>
+          </section>
 
-              <footer class="users-pagination">
-                <span data-users-pagination-summary>Mostrando 0 usuarios</span>
-                <div>
-                  <button type="button" data-users-prev aria-label="Pagina anterior">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.4 7.4-1.4-1.4L8 12l6 6 1.4-1.4L10.8 12l4.6-4.6Z" /></svg>
-                  </button>
-                  <span data-users-page>1</span>
-                  <button type="button" data-users-next aria-label="Pagina siguiente">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 16.6 1.4 1.4 6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6Z" /></svg>
-                  </button>
-                </div>
-                <select data-users-page-size aria-label="Usuarios por pagina">
-                  <option value="10">10 por pagina</option>
-                  <option value="20">20 por pagina</option>
-                  <option value="50">50 por pagina</option>
-                </select>
-              </footer>
-            </section>
-
-            <aside class="admin-panel user-detail-card" data-user-detail>
-              <p class="empty-state">Selecciona un usuario para ver el detalle.</p>
-            </aside>
-          </div>
-
-          <p class="users-feedback" data-users-message hidden></p>
+          <p class="users-feedback" data-role-message hidden></p>
         </section>
       </main>
     </div>
 
-    <div class="modal-backdrop" data-user-modal hidden>
-      <section class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="create-user-title">
+    <div class="modal-backdrop" data-role-modal hidden>
+      <section class="admin-modal role-modal" role="dialog" aria-modal="true" aria-labelledby="role-modal-title">
         <header>
-          <h2 id="create-user-title">Crear usuario</h2>
-          <button type="button" data-close-create-user aria-label="Cerrar">
+          <h2 id="role-modal-title" data-role-modal-title>Nuevo rol</h2>
+          <button type="button" data-close-role-modal aria-label="Cerrar">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5Zm12.6 1.4L6.4 19 5 17.6 17.6 5 19 6.4Z" /></svg>
           </button>
         </header>
-        <form data-create-user-form>
+        <form data-role-form>
+          <input type="hidden" name="id" />
           <label>
-            Tipo de documento
-            <select name="tipo_documento" required>
-              <option value="CC">CC</option>
-              <option value="TI">TI</option>
-              <option value="CE">CE</option>
-              <option value="NIT">NIT</option>
-              <option value="PAS">PAS</option>
+            Nombre del rol
+            <input name="nombre" type="text" maxlength="50" required />
+          </label>
+          <label>
+            Plantilla
+            <select name="plantilla">
+              <option value="CONSULTA">Consulta</option>
+              <option value="OPERADOR">Operador</option>
+              <option value="ADMINISTRADOR">Administrador</option>
             </select>
           </label>
-          <label>
-            Numero de documento
-            <input name="numero_documento" type="text" required />
-          </label>
-          <label>
-            Nombre
-            <input name="nombre" type="text" required />
-          </label>
-          <label>
-            Correo
-            <input name="correo" type="email" />
-          </label>
-          <label>
-            Telefono
-            <input name="telefono" type="tel" />
-          </label>
-          <label>
-            Rol
-            <select name="rol">
-              <option value="consulta">Consulta</option>
-              <option value="operador">Operador</option>
-              <option value="administrador">Administrador</option>
-            </select>
+          <label class="modal-wide">
+            Descripcion
+            <textarea name="descripcion" rows="3" placeholder="Describe el alcance del rol"></textarea>
           </label>
           <footer>
-            <button class="secondary-action" type="button" data-close-create-user>Cancelar</button>
-            <button class="primary-action" type="submit">Crear usuario</button>
+            <button class="secondary-action" type="button" data-close-role-modal>Cancelar</button>
+            <button class="primary-action" type="submit">Guardar rol</button>
+          </footer>
+        </form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" data-assign-modal hidden>
+      <section class="admin-modal assign-modal" role="dialog" aria-modal="true" aria-labelledby="assign-modal-title">
+        <header>
+          <h2 id="assign-modal-title">Asignar usuarios</h2>
+          <button type="button" data-close-assign-modal aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5Zm12.6 1.4L6.4 19 5 17.6 17.6 5 19 6.4Z" /></svg>
+          </button>
+        </header>
+        <form data-assign-form>
+          <label class="modal-wide">
+            Rol destino
+            <select name="rol_id" data-assign-role-select required></select>
+          </label>
+          <div class="assign-users-list modal-wide" data-assign-users>
+            <p class="empty-state">Cargando usuarios...</p>
+          </div>
+          <footer>
+            <button class="secondary-action" type="button" data-close-assign-modal>Cancelar</button>
+            <button class="primary-action" type="submit">Asignar usuarios</button>
           </footer>
         </form>
       </section>
     </div>
 
     <script src="../assets/js/admin-permissions.js"></script>
-    <script src="../assets/js/usuarios.js"></script>
+    <script src="../assets/js/roles.js"></script>
   </body>
 </html>

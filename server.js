@@ -25,7 +25,12 @@ function resolveFilePath(requestUrl) {
     '/index.html': '/html/index.html',
     '/registro.html': '/html/registro.html',
     '/dashboard.html': '/html/dashboard.html',
-    '/usuarios.html': '/html/usuarios.html'
+    '/usuarios.html': '/html/usuarios.html',
+    '/reglas-acumulacion.html': '/html/reglas-acumulacion.html',
+    '/reglas-redencion.html': '/html/reglas-redencion.html',
+    '/historial.html': '/html/historial.html',
+    '/reportes.html': '/html/reportes.html',
+    '/roles.html': '/html/roles.html'
   };
   const requestedPath = htmlRoutes[pathname] || pathname;
   const filePath = path.normalize(path.join(publicDir, requestedPath));
