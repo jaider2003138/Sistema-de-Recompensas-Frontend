@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | Sistema de Recompensas</title>
+    <title>Reglas de acumulacion | Sistema de Recompensas</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
-  <body class="admin-dashboard-page">
+  <body class="admin-dashboard-page rules-page">
     <div class="app-shell admin-shell" data-admin-shell>
       <aside class="sidebar admin-sidebar" aria-label="Navegacion principal">
         <a class="brand" href="./dashboard.html" aria-label="Sistema de Recompensas">
@@ -19,7 +19,7 @@
         </a>
 
         <nav class="side-nav" aria-label="Secciones">
-          <a class="nav-item is-active" href="./dashboard.html">
+          <a class="nav-item" href="./dashboard.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm9 0h7v4h-7V4ZM4 13h7v7H4v-7Zm9-3h7v10h-7V10Z" /></svg>
             </span>
@@ -31,7 +31,7 @@
             </span>
             Usuarios
           </a>
-          <a class="nav-item" href="./reglas-acumulacion.html">
+          <a class="nav-item is-active" href="./reglas-acumulacion.html">
             <span class="nav-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Zm1-3a10 10 0 1 0 10 10A10 10 0 0 0 12 2Z" /></svg>
             </span>
@@ -84,7 +84,7 @@
         <header class="topbar admin-topbar">
           <label class="search-box admin-search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.2-5.2a7 7 0 1 0-1.4 1.4L19.6 21 21 19.6ZM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5Z" /></svg>
-            <input type="search" placeholder="Buscar usuarios, transacciones, reglas..." aria-label="Buscar" />
+            <input type="search" placeholder="Buscar reglas por nombre o descripcion..." aria-label="Buscar reglas" data-rules-search />
           </label>
 
           <div class="top-actions">
@@ -137,147 +137,130 @@
           </div>
         </header>
 
-        <section class="dashboard-content" aria-labelledby="dashboard-title">
-          <header class="dashboard-heading">
+        <section class="dashboard-content rules-content" aria-labelledby="rules-title">
+          <header class="dashboard-heading rules-heading">
             <div>
-              <h1 id="dashboard-title">Dashboard</h1>
-              <p>Resumen general del programa de fidelizacion y trazabilidad.</p>
+              <h1 id="rules-title">Reglas de acumulacion</h1>
+              <p>Configura las equivalencias monetarias y las reglas para la acumulacion de puntos.</p>
             </div>
           </header>
 
-          <section class="admin-metrics" aria-label="Metricas principales">
+          <section class="admin-metrics rules-metrics" aria-label="Metricas de reglas de acumulacion">
             <article class="admin-metric-card">
               <span class="admin-metric-icon green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-3 9a7 7 0 0 1 14 0H4Zm14.5-9.5v-3H16v-2h2.5V3H21v2.5h2v2h-2v3h-2.5Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.6 6.2.9-4.5 4.4 1.1 6.1-5.6-2.9L6.4 20l1.1-6.1L3 9.5l6.2-.9L12 3Z" /></svg>
               </span>
-              <small>Usuarios activos</small>
-              <strong data-metric="usuarios_activos">0</strong>
-              <span class="trend neutral" data-trend="usuarios_activos">0% vs. mes anterior</span>
+              <small>Regla activa principal</small>
+              <strong data-rule-metric="primary">Sin regla</strong>
+              <span class="trend neutral" data-rule-metric="primary-equivalence">Sin equivalencia</span>
             </article>
-
             <article class="admin-metric-card">
               <span class="admin-metric-icon mint" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Zm0 14c-3.9 0-6-1.2-6-2v-2.1c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4V17c0 .8-2.1 2-6 2Zm0-4.7c-3.9 0-6-1.2-6-2V10c1.4.9 3.5 1.4 6 1.4s4.6-.5 6-1.4v2.3c0 .8-2.1 2-6 2Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 3C7 3 4 4.8 4 7v10c0 2.2 3 4 8 4s8-1.8 8-4V7c0-2.2-3-4-8-4Zm0 2c3.9 0 6 1.2 6 2s-2.1 2-6 2-6-1.2-6-2 2.1-2 6-2Z" /></svg>
               </span>
-              <small>Puntos acumulados</small>
-              <strong data-metric="puntos_acumulados">0</strong>
-              <span class="trend neutral" data-trend="puntos_acumulados">0% vs. mes anterior</span>
+              <small>Reglas activas</small>
+              <strong data-rule-metric="active">0</strong>
+              <span class="trend up" data-rule-metric="active-percent">0% del total</span>
             </article>
-
             <article class="admin-metric-card">
               <span class="admin-metric-icon coral" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 7h-3.1a3 3 0 0 0 .6-1.8A3.2 3.2 0 0 0 12 3a3.2 3.2 0 0 0-5.5 2.2c0 .7.2 1.3.6 1.8H4v5h16V7ZM4 14v6h7v-6H4Zm9 6h7v-6h-7v6Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" /></svg>
               </span>
-              <small>Puntos redimidos</small>
-              <strong data-metric="puntos_redimidos">0</strong>
-              <span class="trend neutral" data-trend="puntos_redimidos">0% vs. mes anterior</span>
+              <small>Reglas registradas</small>
+              <strong data-rule-metric="total">0</strong>
+              <span class="trend neutral">Total de reglas</span>
             </article>
-
             <article class="admin-metric-card">
               <span class="admin-metric-icon rose" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM4.2 4H2V2h3.8l1 5H21l-2 8H8.4L7.8 17H19v2H6.2L4.2 4Z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M4 5h16v2H4V5Zm2 5h12v2H6v-2Zm3 5h6v2H9v-2Z" /></svg>
               </span>
-              <small>Redenciones hoy</small>
-              <strong data-metric="redenciones_hoy">0</strong>
-              <span class="trend neutral" data-trend="redenciones_hoy">0% vs. ayer</span>
+              <small>Origenes registrados</small>
+              <strong data-rule-metric="origins">0</strong>
+              <span class="trend neutral">Segun movimientos</span>
             </article>
           </section>
 
-          <div class="dashboard-grid">
-            <section class="dashboard-primary">
-              <div class="charts-grid">
-                <article class="admin-panel">
-                  <header class="panel-header">
-                    <div>
-                      <h2>Acumulacion de puntos por mes</h2>
-                      <span data-monthly-range-label>Meses del a&ntilde;o actual</span>
-                    </div>
-                    <select class="panel-select" data-month-filter aria-label="Filtrar grafica por meses">
-                      <option value="year-to-date" selected>A&ntilde;o actual</option>
-                      <option value="3">Ultimos 3 meses</option>
-                      <option value="6">Ultimos 6 meses</option>
-                      <option value="12">Ultimos 12 meses</option>
-                    </select>
-                  </header>
-                  <div class="admin-bar-chart" data-monthly-chart aria-label="Grafica de puntos por mes">
-                    <p class="empty-state">Cargando acumulacion...</p>
-                  </div>
-                </article>
-
-                <article class="admin-panel">
-                  <header class="panel-header">
-                    <div>
-                      <h2>Distribucion por tipo de transaccion</h2>
-                      <span>Puntos totales por origen</span>
-                    </div>
-                  </header>
-                  <div class="admin-donut-layout">
-                    <div class="admin-donut" data-distribution-donut aria-label="0 puntos totales">
-                      <span><strong data-distribution-total>0</strong><small>Puntos totales</small></span>
-                    </div>
-                    <ul class="admin-legend" data-distribution-list>
-                      <li class="empty-state">Cargando distribucion...</li>
-                    </ul>
-                  </div>
-                </article>
-              </div>
-
-              <article class="admin-panel movements-panel">
-                <header class="panel-header">
-                  <div>
-                    <h2>Movimientos recientes</h2>
-                    <span>Actividad trazable de usuarios y puntos</span>
-                  </div>
-                </header>
-                <div class="admin-table-wrap">
-                  <table class="admin-table">
-                    <thead>
-                      <tr>
-                        <th>Fecha</th>
-                        <th>Usuario</th>
-                        <th>Tipo</th>
-                        <th>Origen</th>
-                        <th>Puntos</th>
-                        <th>Estado</th>
-                      </tr>
-                    </thead>
-                    <tbody data-movements-body>
-                      <tr>
-                        <td colspan="6" class="table-empty">Cargando movimientos...</td>
-                      </tr>
-                    </tbody>
-                  </table>
+          <div class="rules-layout">
+            <section class="admin-panel rules-list-panel">
+              <header class="panel-header">
+                <div>
+                  <h2>Listado de reglas</h2>
+                  <span data-rules-summary>Mostrando 0 reglas</span>
                 </div>
-                <a class="panel-link" href="./historial.html">Ver todos los movimientos</a>
-              </article>
+                <button class="secondary-action" type="button" data-new-rule>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z" /></svg>
+                  Nueva regla
+                </button>
+              </header>
+              <div class="admin-table-wrap rules-table-wrap">
+                <table class="admin-table rules-table">
+                  <thead>
+                    <tr>
+                      <th>Nombre de regla</th>
+                      <th>Tipo</th>
+                      <th>Equivalencia monetaria</th>
+                      <th>Descripcion</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody data-rules-body>
+                    <tr>
+                      <td colspan="6" class="table-empty">Cargando reglas...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </section>
 
-            <aside class="dashboard-aside" aria-label="Resumen lateral">
-              <article class="admin-panel top-clients">
-                <header class="panel-header compact">
-                  <h2>Top clientes</h2>
-                </header>
-                <ol data-top-clients>
-                  <li class="empty-state">Cargando clientes...</li>
-                </ol>
-              </article>
-
-              <article class="admin-panel audit-summary">
-                <span class="audit-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm-1 14-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6L17 10l-6 6Z" /></svg>
-                </span>
-                <h2>Saldo total auditado</h2>
-                <strong data-audit-total>0 pts</strong>
-                <p data-audit-equivalent>Equivalente a $0.00 COP</p>
-                <small data-audit-date>Sin auditorias registradas</small>
-              </article>
+            <aside class="admin-panel rules-form-panel">
+              <header class="panel-header compact">
+                <div>
+                  <h2 data-rule-form-title>Configurar nueva regla</h2>
+                  <span data-rule-form-mode>Equivalencia para acumulacion</span>
+                </div>
+              </header>
+              <form data-rule-form>
+                <input type="hidden" name="id" />
+                <label>
+                  Nombre de regla
+                  <input name="nombre" type="text" placeholder="Ej. Compra en tienda" required />
+                </label>
+                <label>
+                  Descripcion
+                  <textarea name="descripcion" rows="3" placeholder="Detalle u origen de la regla"></textarea>
+                </label>
+                <label>
+                  Monto minimo
+                  <input name="monto_base" type="number" min="1" step="0.01" placeholder="10000" required />
+                </label>
+                <label>
+                  Puntos otorgados
+                  <input name="puntos_otorgados" type="number" min="1" step="1" placeholder="1" required />
+                </label>
+                <label>
+                  Estado
+                  <select name="estado">
+                    <option value="true">Activa</option>
+                    <option value="false">Pausada</option>
+                  </select>
+                </label>
+                <div class="rule-equivalence-preview" data-rule-preview>Equivalencia: $0 COP = 0 pts</div>
+                <footer>
+                  <button class="secondary-action" type="button" data-reset-rule>Limpiar</button>
+                  <button class="secondary-action" type="submit" data-save-rule="false">Guardar</button>
+                  <button class="primary-action" type="submit" data-save-rule="true">Publicar regla</button>
+                </footer>
+              </form>
             </aside>
           </div>
+
+          <p class="users-feedback" data-rules-message hidden></p>
         </section>
       </main>
     </div>
 
     <script src="../assets/js/admin-permissions.js"></script>
-    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/reglas-acumulacion.js"></script>
   </body>
 </html>
