@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = Number(process.env.FRONTEND_PORT || process.env.PORT || 5173);
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 const publicDir = __dirname;
 
 const contentTypes = {
@@ -51,10 +52,25 @@ function sendFile(response, filePath) {
     }
 
     const ext = path.extname(filePath).toLowerCase();
+    let finalContent = content;
+    
+    // Inyectar variables de entorno en HTML
+    if (ext === '.html') {
+      let htmlContent = content.toString();
+      htmlContent = htmlContent.replace(
+        /<\/head>/,
+        `<script>
+          window.REWARD_API_BASE_URL = '${API_BASE_URL}';
+        </script>
+        </head>`
+      );
+      finalContent = Buffer.from(htmlContent);
+    }
+    
     response.writeHead(200, {
       'Content-Type': contentTypes[ext] || 'application/octet-stream'
     });
-    response.end(content);
+    response.end(finalContent);
   });
 }
 
