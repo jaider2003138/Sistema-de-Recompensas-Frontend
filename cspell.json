@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "language": "en,es",
+  "words": [
+    "angularCompilerOptions",
+    "compileOnSave",
+    "enableI18nLegacyMessageIdFormat",
+    "forceConsistentCasingInFileNames",
+    "importHelpers",
+    "moduleResolution",
+    "noFallthroughCasesInSwitch",
+    "noImplicitOverride",
+    "noImplicitReturns",
+    "noPropertyAccessFromIndexSignature",
+    "sourceMap",
+    "strictInjectionParameters",
+    "strictInputAccessModifiers",
+    "strictTemplates",
+    "tslib",
+    "useDefineForClassFields"
+  ]
+}
